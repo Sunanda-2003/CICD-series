@@ -1,0 +1,44 @@
+pipeline {
+    agent any
+
+    stages {
+        stage('gitclone') {
+            steps {
+                git branch: 'main', url: 'https://github.com/murthychiluka/terraform-murthy.git'
+            }
+        }
+
+        stage('Init') {
+            steps {
+                dir('Day01') {
+                    sh 'terraform init -reconfigure'
+                }
+            }
+        }
+
+        stage('Plan') {
+            steps {
+                dir('Day01') {
+                    sh 'terraform plan'
+                }
+            }
+        }
+
+        stage('Approval') {
+            steps {
+                input(
+                    message: 'Terraform plan completed. Do you want to apply the changes?',
+                    ok: 'Apply'
+                )
+            }
+        }
+
+        stage('Apply') {
+            steps {
+                dir('Day01') {
+                    sh 'terraform apply -auto-approve'
+                }
+            }
+        }
+    }
+}
