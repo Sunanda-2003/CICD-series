@@ -4,13 +4,13 @@ pipeline {
     stages {
         stage('gitclone') {
             steps {
-                git branch: 'main', url: 'https://github.com/murthychiluka/terraform-murthy.git'
+                git branch: 'main', url: 'https://github.com/murthychiluka/CICD-series-1.git'
             }
         }
 
         stage('Init') {
             steps {
-                dir('Day01') {
+                dir('Day02-approval-gate') {
                     sh 'terraform init -reconfigure'
                 }
             }
@@ -18,7 +18,7 @@ pipeline {
 
         stage('Plan') {
             steps {
-                dir('Day01') {
+                dir('Day02-approval-gate') {
                     sh 'terraform plan'
                 }
             }
@@ -35,8 +35,8 @@ pipeline {
 
         stage('Apply') {
             steps {
-                dir('Day01') {
-                    sh 'terraform apply -auto-approve'
+                dir('Day02-approval-gate') {
+                    sh 'terraform destroy -auto-approve'
                 }
             }
         }
