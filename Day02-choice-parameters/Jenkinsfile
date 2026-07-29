@@ -12,7 +12,7 @@ pipeline {
     stages {
         stage('Git Clone') {
             steps {
-                git branch: 'main', url: 'https://github.com/murthychiluka/terraform-murthy.git'
+                git branch: 'main', url: 'https://github.com/murthychiluka/CICD-series-1.git'
             }
         }
 
