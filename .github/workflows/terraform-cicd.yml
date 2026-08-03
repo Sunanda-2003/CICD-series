@@ -9,7 +9,7 @@ on:
 jobs:
   terraform:
     runs-on: ubuntu-latest
-  defaults:
+    defaults:
       run:
         working-directory: Day-2-terraform-github-actions
 
