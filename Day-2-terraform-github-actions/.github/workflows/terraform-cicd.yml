@@ -2,9 +2,9 @@
 name:  Deploy-Job
 
 on:
-  push:
-    branches: [ murthy  ]
-  #workflow_dispatch:   # ✅ Manual trigger only
+  # push:
+  #   branches: [ murthy  ]
+  workflow_dispatch:   # ✅ Manual trigger only
 
 
 jobs:
