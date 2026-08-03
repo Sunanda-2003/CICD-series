@@ -4,12 +4,18 @@ name:  Deploy-Job
 on:
   # push:
   #   branches: [ murthy  ]
+  
   workflow_dispatch:   # ✅ Manual trigger only
+  
+
 
 
 jobs:
   terraform:
     runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: Day-2-terraform-github-actions
 
     env:
       AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
