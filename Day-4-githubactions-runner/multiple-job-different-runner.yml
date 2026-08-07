@@ -15,7 +15,7 @@ jobs:
         run: echo "Build on GitHub-hosted runner"
 
   test:
-    runs-on: [self-hosted, linux]
+    runs-on: [self-hosted, sri]
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -23,7 +23,7 @@ jobs:
         run: echo "Tests on self-hosted Linux runner"
 
   deploy:
-    runs-on: [self-hosted, deploy]
+    runs-on: [self-hosted, sri]
     steps:
       - name: Checkout
         uses: actions/checkout@v4
